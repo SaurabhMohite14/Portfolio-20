@@ -6,7 +6,6 @@ import { Canvas } from "@react-three/fiber"
 import { Float } from "@react-three/drei"
 import { Suspense, useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { GhibliAvatar } from "./ghibli-avatar"
 import { FloatingElements } from "./floating-elements"
 
 function AnimatedWords({ words, delay = 0 }: { words: string[]; delay?: number }) {
@@ -298,8 +297,60 @@ export function Hero() {
               repeat: Number.POSITIVE_INFINITY,
               ease: "easeInOut",
             }}
+            className="relative"
           >
-            <GhibliAvatar />
+            <div className="relative w-80 h-96 sm:w-96 sm:h-[28rem] lg:w-[28rem] lg:h-[32rem]">
+              <motion.img
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT_Image_Sep_7__2025_at_11_50_43_AM-removebg-preview-Y7AIrz8Zj2FcPqZjhHRQCGeMKJ02Cr.png"
+                alt="Saurabh Mohite - Full Stack Developer Action Figure"
+                className="w-full h-full object-contain rounded-2xl shadow-2xl"
+                whileHover={{
+                  scale: 1.05,
+                  rotateY: 5,
+                  rotateX: 5,
+                }}
+                transition={{ duration: 0.3 }}
+              />
+              {/* Glow effect behind the image */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-xl -z-10 animate-pulse" />
+              {/* Floating particles around the image */}
+              <motion.div
+                className="absolute -top-4 -right-4 w-3 h-3 bg-primary rounded-full"
+                animate={{
+                  y: [0, -20, 0],
+                  opacity: [0.5, 1, 0.5],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Number.POSITIVE_INFINITY,
+                  delay: 0,
+                }}
+              />
+              <motion.div
+                className="absolute -bottom-4 -left-4 w-2 h-2 bg-secondary rounded-full"
+                animate={{
+                  y: [0, -15, 0],
+                  opacity: [0.3, 0.8, 0.3],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Number.POSITIVE_INFINITY,
+                  delay: 1,
+                }}
+              />
+              <motion.div
+                className="absolute top-1/2 -right-6 w-1.5 h-1.5 bg-accent rounded-full"
+                animate={{
+                  x: [0, 10, 0],
+                  opacity: [0.4, 1, 0.4],
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Number.POSITIVE_INFINITY,
+                  delay: 0.5,
+                }}
+              />
+            </div>
           </motion.div>
         </motion.div>
       </div>

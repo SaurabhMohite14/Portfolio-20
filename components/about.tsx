@@ -5,37 +5,12 @@ import { Canvas } from "@react-three/fiber"
 import { OrbitControls, Box, MeshWobbleMaterial } from "@react-three/drei"
 import { Suspense } from "react"
 import { motion } from "framer-motion"
-import { GraduationCap, Award, BookOpen, Code } from "lucide-react"
 
 function AnimatedCube() {
   return (
     <Box args={[2, 2, 2]} rotation={[0.4, 0.2, 0]}>
       <MeshWobbleMaterial color="#f97316" attach="material" factor={1} speed={2} roughness={0} />
     </Box>
-  )
-}
-
-function AnimatedIcon({ icon: Icon, delay = 0 }: { icon: any; delay?: number }) {
-  return (
-    <motion.div
-      initial={{ scale: 0, rotate: -180 }}
-      animate={{ scale: 1, rotate: 0 }}
-      transition={{
-        duration: 0.8,
-        delay,
-        type: "spring",
-        stiffness: 200,
-        damping: 10,
-      }}
-      whileHover={{
-        scale: 1.2,
-        rotate: 360,
-        transition: { duration: 0.5 },
-      }}
-      className="p-4 bg-primary/10 rounded-full border-2 border-primary/20 hover:border-primary/50 transition-all duration-300"
-    >
-      <Icon className="h-8 w-8 text-primary" />
-    </motion.div>
   )
 }
 
@@ -64,7 +39,7 @@ export function About() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -93,7 +68,7 @@ export function About() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-4"
+            className="space-y-6"
           >
             <p className="text-base text-pretty leading-relaxed text-body">
               I'm a passionate Full Stack Developer with 2+ years of experience in PLM-aligned software solutions,
@@ -103,164 +78,31 @@ export function About() {
             <p className="text-base text-pretty leading-relaxed text-body">
               I've led integration projects that enhanced customer satisfaction by over 40% and boosted system
               efficiency through microservices architecture. My background in Mechanical Engineering gives me a unique
-              perspective.
+              perspective on solving complex technical challenges.
             </p>
 
-            <div className="grid grid-cols-2 gap-4 pt-4">
-              <Card className="hover:scale-105 transition-transform">
-                <CardContent className="p-4 text-center">
-                  <div className="text-2xl font-bold text-primary mb-1">10+</div>
-                  <div className="text-xs text-muted-foreground">Projects Completed</div>
+            <p className="text-base text-pretty leading-relaxed text-body">
+              Currently working at Sanchi Solutions, I focus on building scalable web and mobile applications, creating
+              reusable UI components, and orchestrating CI/CD pipelines using modern technologies like .NET Core,
+              React.js, and Azure DevOps.
+            </p>
+
+            <div className="grid grid-cols-2 gap-4 pt-6">
+              <Card className="hover:scale-105 transition-transform duration-300 hover:shadow-lg">
+                <CardContent className="p-6 text-center">
+                  <div className="text-3xl font-bold text-primary mb-2">10+</div>
+                  <div className="text-sm text-muted-foreground">Projects Completed</div>
                 </CardContent>
               </Card>
-              <Card className="hover:scale-105 transition-transform">
-                <CardContent className="p-4 text-center">
-                  <div className="text-2xl font-bold text-primary mb-1">2+</div>
-                  <div className="text-xs text-muted-foreground">Years Experience</div>
+              <Card className="hover:scale-105 transition-transform duration-300 hover:shadow-lg">
+                <CardContent className="p-6 text-center">
+                  <div className="text-3xl font-bold text-primary mb-2">2+</div>
+                  <div className="text-sm text-muted-foreground">Years Experience</div>
                 </CardContent>
               </Card>
             </div>
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-12"
-        >
-          <h3 className="text-2xl font-bold text-center mb-8 heading-display">Education</h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg p-6 hover:shadow-lg transition-all duration-300"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <AnimatedIcon icon={GraduationCap} delay={0.2} />
-                <div>
-                  <h4 className="font-semibold text-lg heading-modern">Post Graduation Diploma</h4>
-                  <p className="text-primary font-medium">Advanced Computing - CDAC</p>
-                  <p className="text-sm text-muted-foreground">March 2023 - September 2023</p>
-                </div>
-              </div>
-              <div className="mt-4 space-y-2">
-                <p className="text-sm text-muted-foreground">
-                  <strong>Core Modules:</strong> Full Stack Development, Database Management, System Design
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  <strong>Technologies:</strong> Java, J2EE, React.js, Spring Boot, Microservices, REST APIs
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  <strong>Projects:</strong> Smart Exam Portal, Video Calling App with WebRTC
-                </p>
-                <div className="flex flex-wrap gap-2 mt-3">
-                  <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">Full Stack</span>
-                  <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">Microservices</span>
-                  <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">System Design</span>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg p-6 hover:shadow-lg transition-all duration-300"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <AnimatedIcon icon={BookOpen} delay={0.4} />
-                <div>
-                  <h4 className="font-semibold text-lg heading-modern">Bachelor of Engineering</h4>
-                  <p className="text-primary font-medium">Mechanical Engineering - Pune University</p>
-                  <p className="text-sm text-muted-foreground">June 2018 - May 2022</p>
-                </div>
-              </div>
-              <div className="mt-4 space-y-2">
-                <p className="text-sm text-muted-foreground">
-                  <strong>Specialization:</strong> Manufacturing Systems, CAD/CAM, Industrial Automation
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  <strong>Key Skills:</strong> Problem Solving, System Analysis, Process Optimization
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  <strong>Foundation:</strong> Strong analytical thinking and systematic approach to complex problems
-                </p>
-                <div className="flex flex-wrap gap-2 mt-3">
-                  <span className="px-2 py-1 bg-secondary/10 text-secondary text-xs rounded-full">CAD Design</span>
-                  <span className="px-2 py-1 bg-secondary/10 text-secondary text-xs rounded-full">Analytics</span>
-                  <span className="px-2 py-1 bg-secondary/10 text-secondary text-xs rounded-full">Process Design</span>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <h3 className="text-2xl font-bold text-center mb-8 heading-display">Certifications</h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg p-6 hover:shadow-lg transition-all duration-300"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <AnimatedIcon icon={Award} delay={0.6} />
-                <div>
-                  <h4 className="font-semibold text-lg heading-modern">3DExperience Engineer</h4>
-                  <p className="text-primary font-medium">SolidWorks, Enovia, Delmia</p>
-                  <p className="text-sm text-muted-foreground">PLM & Manufacturing Process Planning</p>
-                </div>
-              </div>
-              <div className="mt-4 space-y-2">
-                <p className="text-sm text-muted-foreground">
-                  <strong>Expertise:</strong> Product Lifecycle Management, 3D Design, Manufacturing Simulation
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  <strong>Tools Mastered:</strong> SolidWorks CAD, ENOVIA PLM, DELMIA Manufacturing
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  <strong>Applications:</strong> Enterprise PLM workflows, collaborative 3D design, process planning
-                </p>
-                <div className="flex flex-wrap gap-2 mt-3">
-                  <span className="px-2 py-1 bg-accent/10 text-accent text-xs rounded-full">PLM Systems</span>
-                  <span className="px-2 py-1 bg-accent/10 text-accent text-xs rounded-full">3D Modeling</span>
-                  <span className="px-2 py-1 bg-accent/10 text-accent text-xs rounded-full">Manufacturing</span>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg p-6 hover:shadow-lg transition-all duration-300"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <AnimatedIcon icon={Code} delay={0.8} />
-                <div>
-                  <h4 className="font-semibold text-lg heading-modern">Programming with Python</h4>
-                  <p className="text-primary font-medium">Internshala Certification</p>
-                  <p className="text-sm text-muted-foreground">Python Fundamentals & OOP</p>
-                </div>
-              </div>
-              <div className="mt-4 space-y-2">
-                <p className="text-sm text-muted-foreground">
-                  <strong>Curriculum:</strong> Python fundamentals, control structures, functions, OOP concepts
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  <strong>Practical Skills:</strong> File handling, data structures, algorithm implementation
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  <strong>Projects:</strong> Hands-on project work with real-world applications
-                </p>
-                <div className="flex flex-wrap gap-2 mt-3">
-                  <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">Python</span>
-                  <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">OOP</span>
-                  <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">Data Structures</span>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

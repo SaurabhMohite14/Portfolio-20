@@ -663,3 +663,8 @@ html {
   font-family: var(--font-jetbrains-mono);
   font-weight: 400;
 }
+@media (max-width: 640px) { /* Tailwind's 'sm' breakpoint */
+  .mt-negative-mobile {
+    margin-top: 100px;
+  }
+}

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Moon, Sun } from "lucide-react"
-
+import Image from "next/image"
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
@@ -58,9 +58,15 @@ export function Navigation() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex-shrink-0">
-            <span className="text-xl font-bold text-foreground">Saurabh Mohite</span>
-          </div>
+            <div className="flex-shrink-0">
+    <Image
+      src="/favicon-32x32.png"
+      alt="Logo"
+      width={32}
+      height={32}
+      className="rounded-sm" // optional: add styling if needed
+    />
+  </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">

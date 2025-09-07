@@ -68,7 +68,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden gradient-dark"
+      className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden gradient-dark mt-negative-mobile"
     >
       <div className="absolute inset-0 w-full h-full opacity-30">
         <Canvas camera={{ position: [0, 0, 5] }}>
@@ -161,15 +161,20 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.4, delay: 0.1 }} // ⏩ faster entrance
             className="mb-8"
           >
             <h2 className="text-xl sm:text-2xl text-muted-foreground text-balance heading-modern">
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 1.8 }}>
-                <TypewriterText text="Full Stack Developer & PLM Solutions Expert" delay={2000} />
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4, delay: 0.6 }} // ⏩ faster text fade-in
+              >
+                <TypewriterText text="Full Stack Developer & PLM Solutions Expert" delay={100} /> {/* ⏩ reduced delay */}
               </motion.div>
             </h2>
           </motion.div>
+
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -216,14 +221,16 @@ export function Hero() {
               <span>View My Work</span>
               <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
             </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="text-lg px-8 py-3 bg-transparent border-secondary text-secondary hover:bg-secondary/10 hover:scale-105 transition-all duration-300 group"
-            >
-              <Download className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
-              <span>Download Resume</span>
-            </Button>
+           <a href="/SaurabhMohite_7448196608-1.pdf" download>
+  <Button
+    variant="outline"
+    size="lg"
+    className="text-lg px-8 py-3 bg-transparent border-secondary text-secondary hover:bg-secondary/10 hover:scale-105 transition-all duration-300 group"
+  >
+    <Download className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
+    <span>Download Resume</span>
+  </Button>
+</a>
           </motion.div>
 
           <motion.div

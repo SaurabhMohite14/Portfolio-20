@@ -11,6 +11,7 @@ import { Label } from "@/components/ui/label"
 import { Mail, Phone, Send, Linkedin } from "lucide-react"
 import { ResumeGenerator } from "@/components/resume-generator"
 import { InteractiveGlobe } from "@/components/interactive-globe"
+import emailjs from "@emailjs/browser";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -21,30 +22,48 @@ export function Contact() {
   })
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
+    emailjs.send(
+      "service_7h7oegi",      // replace with your service ID
+      "template_nzqvsz4",     // replace with your template ID
+      formData,
+      "Jsr-mX_9QwgKfQphl"       // replace with your user/public key
+    )
+    .then(() => {
+      alert("Message sent successfully!");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    })
+    .catch((error) => {
+      console.error("Failed to send message:", error);
+      alert("Failed to send message, please try again.");
+    });
+  };
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault()
 
-      const result = await response.json()
+  //   try {
+  //     const response = await fetch("/api/contact", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(formData),
+  //     })
 
-      if (result.success) {
-        alert("Message sent successfully! I'll get back to you soon.")
-        setFormData({ name: "", email: "", subject: "", message: "" })
-      } else {
-        alert("Failed to send message. Please try again.")
-      }
-    } catch (error) {
-      console.error("Form submission error:", error)
-      alert("Failed to send message. Please try again.")
-    }
-  }
+  //     const result = await response.json()
+
+  //     if (result.success) {
+  //       alert("Message sent successfully! I'll get back to you soon.")
+  //       setFormData({ name: "", email: "", subject: "", message: "" })
+  //     } else {
+  //       alert("Failed to send message. Please try again.")
+  //     }
+  //   } catch (error) {
+  //     console.error("Form submission error:", error)
+  //     alert("Failed to send message. Please try again.")
+  //   }
+  // }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({

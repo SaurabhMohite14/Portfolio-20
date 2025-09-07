@@ -28,6 +28,9 @@ export const metadata: Metadata = {
   title: "Saurabh Mohite - Full Stack Developer",
   description: "Full Stack Developer with 2+ years of experience in PLM-aligned software solutions",
   generator: "v0.app",
+   icons: {
+    icon: "/favicon.ico", 
+  },
 }
 
 export default function RootLayout({

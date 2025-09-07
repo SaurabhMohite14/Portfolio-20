@@ -45,7 +45,7 @@ export function About() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="w-full h-80 bg-muted rounded-lg mb-6 flex items-center justify-center relative overflow-hidden">
+            <div className="w-full h-90 bg-muted rounded-lg mb-6 flex items-center justify-center relative overflow-hidden">
               <div className="absolute inset-0">
                 <Canvas camera={{ position: [0, 0, 5] }}>
                   <Suspense fallback={null}>
@@ -57,7 +57,7 @@ export function About() {
                 </Canvas>
               </div>
               <img
-                src="/professional-developer-headshot.png"
+                src="/self.png"
                 alt="Saurabh Mohite - Professional headshot"
                 className="w-full h-full object-cover rounded-lg relative z-10"
               />

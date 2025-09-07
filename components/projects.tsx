@@ -124,7 +124,7 @@ export function Projects() {
                     </Badge>
                   ))}
                 </div>
-                <div className="flex gap-3">
+                {/* <div className="flex gap-3">
                   <Button size="sm" asChild className="hover:scale-105 transition-transform">
                     <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="h-4 w-4 mr-2" />
@@ -142,7 +142,7 @@ export function Projects() {
                       Code
                     </a>
                   </Button>
-                </div>
+                </div> */}
               </CardContent>
             </Card>
           ))}

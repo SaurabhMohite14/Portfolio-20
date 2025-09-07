@@ -33,11 +33,12 @@ export default function Home() {
             <Projects />
           </div>
           <div data-scroll>
-            <Experience />
-          </div>
-          <div data-scroll>
             <LivePlayground />
           </div>
+          <div data-scroll>
+            <Experience />
+          </div>
+          
           <div data-scroll>
             <AdminDashboard />
           </div>

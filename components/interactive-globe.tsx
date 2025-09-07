@@ -28,7 +28,7 @@ function NetworkVisualization() {
   }, [])
 
   const connections = useMemo(() => {
-    const temp = []
+    const temp: { start: [number, number, number]; end: [number, number, number]; opacity: number }[] = []
     for (let i = 0; i < nodes.length; i++) {
       for (let j = i + 1; j < nodes.length; j++) {
         const distance = Math.sqrt(
